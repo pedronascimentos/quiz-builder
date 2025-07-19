@@ -14,7 +14,7 @@ datasource db {
 model Quiz {
   id Int  @id @default(autoincrement())
   title String
-  name String
+  name String?
   createdAt DateTime @default(now())
   questions Question[]
 }
