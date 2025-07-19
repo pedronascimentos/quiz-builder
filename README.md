@@ -64,8 +64,6 @@ quiz-builder/
 
 ### Installation and Execution
 
-Execute the following steps to run the project locally.
-
 1.  **Clone the repository:**
 
     ```bash
@@ -73,11 +71,26 @@ Execute the following steps to run the project locally.
     cd quiz-builder
     ```
 
-2.  **Configure and run the Backend:**
+2.  **Configure and Run the Backend:**
 
     ```bash
     cd backend
-    cp .env.example .env
+    ```
+
+    **Create the environment file:**
+
+      * For **Linux/macOS**:
+        ```bash
+        cp .env.example .env
+        ```
+      * For **Windows**:
+        ```bash
+        copy .env.example .env
+        ```
+
+    **Install dependencies and start the server:**
+
+    ```bash
     npm install
     npx prisma migrate dev
     npm run start:dev
@@ -85,17 +98,31 @@ Execute the following steps to run the project locally.
 
     The API will be available at `http://localhost:3001`.
 
-3.  **Configure and run the Frontend:**
+3.  **Configure and Run the Frontend:**
 
     ```bash
     cd ../frontend
-    cp .env.example .env
+    ```
+
+    **Create the environment file:**
+
+      * For **Linux/macOS**:
+        ```bash
+        cp .env.example .env
+        ```
+      * For **Windows**:
+        ```bash
+        copy .env.example .env
+        ```
+
+    **Install dependencies and start the server:**
+
+    ```bash
     npm install --legacy-peerdeps
     npm run dev
     ```
 
     The application will be available at `http://localhost:3000`.
-
 
 -----
 
@@ -103,11 +130,11 @@ Execute the following steps to run the project locally.
 
 The backend provides the following REST API endpoints as per the assessment requirements.
 
-| Method | Endpoint        | Description                                                  |
-| :----- | :-------------- | :----------------------------------------------------------- |
-| `POST` | `/quizzes`      | Creates a new quiz.                                          |
-| `GET`  | `/quizzes`      | Retrieves a list of all quizzes, including their question count. |
-| `GET`  | `/quizzes/:id`  | Retrieves the full details of a specific quiz by its ID.       |
+| Method | Endpoint       | Description                                                  |
+| :--- | :--- | :--- |
+| `POST` | `/quizzes`     | Creates a new quiz.                                          |
+| `GET`  | `/quizzes`     | Retrieves a list of all quizzes, including their question count. |
+| `GET`  | `/quizzes/:id` | Retrieves the full details of a specific quiz by its ID.       |
 | `DELETE`| `/quizzes/:id` | Deletes a specific quiz by its ID.                            |
 
 -----
