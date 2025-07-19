@@ -118,7 +118,7 @@ quiz-builder/
     **Install dependencies and start the server:**
 
     ```bash
-    npm install --legacy-peerdeps
+    npm install --legacy-peer-deps
     npm run dev
     ```
 
