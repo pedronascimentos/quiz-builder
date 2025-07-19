@@ -3,12 +3,17 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+enum QuestionType {
+  BOOLEAN
+  INPUT
+  CHECKBOX
 }
 
 model Quiz {
@@ -22,8 +27,8 @@ model Quiz {
 model Question {
   id Int  @id @default(autoincrement())
   text String
-  type String // BOOLEAN, INPUT, CHECKBOX
-  options String[] // Checkbox options
-  quiz Quiz @relation(fields: [quizid], references: [id], onDelete: Cascade)
+  type QuestionType           // BOOLEAN, INPUT, CHECKBOX
+  options String        // Checkbox options as JSON [option 1, option 2]
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
   quizId Int
 }
